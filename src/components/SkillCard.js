@@ -4,9 +4,9 @@ const SkillCard = (props) => {
     const { name, image } = props.data;
 
     return (
-        <div className='bg-gray-50 rounded-lg p-4 flex'>
+        <div data-aos="fade-up" className='bg-gray-50 rounded-lg p-4 flex'>
             <img src={image} alt={name} className='w-12 h-12 bg-transparent' />
-            <span className='text-xl font-mono pl-4 mt-2'>{name}</span>
+            <span className='text-xl font-mono pl-4 mt-2 break-words'>{name}</span>
         </div>
     )
 }

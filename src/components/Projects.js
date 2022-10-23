@@ -36,7 +36,12 @@ const Projects = () => {
             <Title name="What I Build" />
             <div className='grid grid-cols-1 my-5 md:grid-cols-2 gap-5 lg:grid-cols-3'>
                 {Project.map((project) => (
-                    <div className='shadow-md rounded-md' key={project.id}>
+                    <div className='shadow-md rounded-md'
+                        data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-delay="300"
+                        data-aos-offset="0"
+                        key={project.id}>
                         <img className='rounded-t-md' src={project.image} alt={project.title} />
                         <div className='p-5'>
                             <h4 className='py-2 font-semibold text-xl'>{project.title}</h4>

@@ -7,6 +7,7 @@ const GlobalContext = React.createContext({
     scrollToTop: () => { },
     activeButton: 'home',
     setActiveButton: () => { },
+    homeRef: null,
     aboutRef: null,
     serviceRef: null,
     projectRef: null,

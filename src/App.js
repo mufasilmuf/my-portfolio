@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 import './App.css';
 import About from './components/About';
@@ -13,6 +15,11 @@ import GlobalContext from './context/GlobalContext';
 
 function App() {
   const { scrollTopVisible } = useContext(GlobalContext);
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
   return (
     <React.Fragment>

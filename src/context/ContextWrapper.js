@@ -5,7 +5,7 @@ import GlobalContext from './GlobalContext';
 const ContextWrapper = ({ children }) => {
 
     const [scrollTopVisible, setScrollTopVisible] = useState(false);
-    const [activeButton, setActiveButton] = useState('home');
+    const [activeButton, setActiveButton] = useState('');
     const [navToggle, setNavToggle] = useState(false);
 
     const toggleVisible = () => {
@@ -18,18 +18,7 @@ const ContextWrapper = ({ children }) => {
         }
     }
 
-    const setToggleForNav = () => {
-        const resized = document.documentElement.offsetWidth;
-        if (resized >= 1024) {
-            setNavToggle(true);
-        }
-        else {
-            setNavToggle(false);
-        }
-    }
-
     window.addEventListener('scroll', toggleVisible);
-    window.addEventListener('resize', setToggleForNav)
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -40,25 +29,27 @@ const ContextWrapper = ({ children }) => {
 
     const scrollTo = (id) => {
         const element = document.getElementById(id);
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setActiveButton(id)
     }
 
+    const homeRef = useRef();
     const aboutRef = useRef();
     const serviceRef = useRef();
     const projectRef = useRef();
     const contactRef = useRef();
 
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0];
-            if (entry.isIntersecting) {
-                setActiveButton(entry.target.id);
-            }
-        })
-        observer.observe(aboutRef.current);
-        observer.observe(serviceRef.current);
-        observer.observe(projectRef.current);
-        observer.observe(contactRef.current);
+        // const observer = new IntersectionObserver((entries) => {
+        //     const entry = entries[0];
+        //     if (entry.isIntersecting) {
+        //         setActiveButton(entry.target.id);
+        //     }
+        // })
+        // observer.observe(aboutRef.current);
+        // observer.observe(serviceRef.current);
+        // observer.observe(projectRef.current);
+        // observer.observe(contactRef.current);
     }, [])
 
     return (
@@ -69,6 +60,7 @@ const ContextWrapper = ({ children }) => {
             scrollToTop,
             activeButton,
             setActiveButton,
+            homeRef,
             aboutRef,
             serviceRef,
             projectRef,

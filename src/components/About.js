@@ -124,7 +124,7 @@ const About = () => {
         <section className='px-5 lg:px-10 py-4' id='about' ref={aboutRef}>
             <Title name="About Me" />
             <p className='text-lg pb-5'>
-                My name is Mohamed Mufasil Mufeeth and I am a software engineer specialized in FrontEnd applications.
+                My name is Mohamed Mufasil Mufeeth and I am a software engineer specialized in fullstack developing.
                 I started web development in a strong knowledge and expertise in this field over time.
                 I want this page to be a "not-so-formal" description of who I am,
                 my main skills and why I think I am a great software engineer and why you should hire me.
@@ -133,7 +133,7 @@ const About = () => {
             <Title name="Technologies and Tools" />
             <p className='text-lg pb-5'>
                 Using a combination of cutting-edge technologies and reliable open-source software I build user-focused,
-                performant apps and websites for smartphones, tablets, and desktops.
+                performance and responsive websites for smartphones, tablets, and desktops.
             </p>
             <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4'>
                 {Skills.map((skill) => (
